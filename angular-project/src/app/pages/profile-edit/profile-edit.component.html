@@ -1,0 +1,30 @@
+<div *ngIf="currentUser != undefined && currentUser.uid != ''" class="profile-container">
+    <div class="m-bottom-5">Modification du profil</div>
+
+    <form [formGroup]="profileForm">
+        <div class="m-bottom-10">
+            <span>Nom : </span>
+            <input formControlName="lastname" type="text" value="{{ currentUser.lastname }}">
+        </div>
+
+        <div class="m-bottom-10">
+            <span>Prénom : </span>
+            <input formControlName="firstname" type="text" value="{{ currentUser.firstname }}">
+        </div>
+
+        <div class="m-bottom-10">
+            <span>Date de naissance : </span>
+            <input formControlName="birthdate" type="date" value="{{ currentUser.birthdate }}">
+        </div>
+
+        <div class="d-block m-bottom-10">
+            <span>Genre : </span>
+            <mat-radio-group formControlName="genre" aria-label="Genre">
+                <mat-radio-button class="margin-right-5" value="1">Femme</mat-radio-button>
+                <mat-radio-button value="2">Homme</mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+        <button type="submit" (click)="onSubmit()">Modifier</button>
+    </form>
+</div>

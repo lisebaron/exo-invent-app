@@ -1,0 +1,21 @@
+<div class="register-container ">
+    <span>Inscription</span>
+    <form class="register-form" [formGroup]="registerForm">
+        <input type="text" formControlName="lastname" placeholder="Nom">
+        <input type="text" formControlName="firstname" placeholder="Prénom">
+        <input type="date" formControlName="birthdate">
+        
+        <mat-radio-group formControlName="genre" aria-label="Genre">
+            <mat-radio-button class="margin-right-5" value="1">Femme</mat-radio-button>
+            <mat-radio-button value="2">Homme</mat-radio-button>
+        </mat-radio-group>
+         
+        <input type="email" formControlName="email" placeholder="Email" required>
+        <input type="password" formControlName="password" placeholder="*****">
+        <button type="submit" (click)="onSubmit()">S'inscrire</button>
+    </form>
+
+    <div class="margin-top-15">
+        <a routerLink='/login'>Se connecter</a>
+    </div>
+</div>

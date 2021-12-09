@@ -1,0 +1,11 @@
+<div class="login-container">
+    <span>Connexion</span>
+    <form class="login-form" [formGroup]="loginForm">
+        <input type="email" formControlName="email" placeholder="Email">
+        <input type="password" formControlName="password" placeholder="*****">
+        <button type="submit" (click)="onSubmit()">Se connecter</button>
+    </form>
+    <div class="margin-top-15">
+        <a routerLink='/register'>S'inscrire</a>
+    </div>
+</div>
