@@ -1,0 +1,31 @@
+.d-flex {
+    display: flex;
+}
+.d-flex-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.align-verticaly {
+    line-height: 40px;
+    margin: 0;
+}
+.center-horizontaly {
+    margin: auto;
+    width: fit-content;
+}
+
+.width-700 {
+    width: 700px;
+}
+.margin-top-10 {
+    margin-top: 10px;
+}
+.padding-10 {
+    padding: 10px;
+}
+
+.bg-color-border-radius {
+    background-color: rgb(188, 224, 247);
+    border-radius: 5px;
+}

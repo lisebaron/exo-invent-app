@@ -1,4 +1,4 @@
-<div *ngIf="currentUser != undefined && currentUser.uid != ''" class="profile-container">
+<div *ngIf="currentUser && currentUser.uid" class="profile-container">
     <div class="m-bottom-5">Modification du profil</div>
 
     <form [formGroup]="profileForm">

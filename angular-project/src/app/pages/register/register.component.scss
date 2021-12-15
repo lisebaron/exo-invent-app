@@ -1,11 +1,27 @@
 .register-container {
     margin: auto;
+    width: 250px;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.button-container {
+    margin: auto;
     width: fit-content;
 }
 
-.register-form > input {
-    display: block;
-    margin-bottom: 5px;
+.fake-mat-input {
+    border: none;
+    background-color: inherit;
+    border-bottom: 1px solid #8d8d8d;
+    padding: 10px;
+    color: #606060;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: inherit;
 }
 
 .margin-right-5 {
@@ -14,4 +30,8 @@
 }
 .margin-top-15 {
     margin-top: 15px;
+}
+
+.text-align-center {
+    text-align: center;
 }

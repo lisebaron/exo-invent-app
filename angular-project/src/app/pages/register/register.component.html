@@ -1,21 +1,44 @@
-<div class="register-container ">
-    <span>Inscription</span>
-    <form class="register-form" [formGroup]="registerForm">
-        <input type="text" formControlName="lastname" placeholder="Nom">
-        <input type="text" formControlName="firstname" placeholder="Prénom">
-        <input type="date" formControlName="birthdate">
-        
-        <mat-radio-group formControlName="genre" aria-label="Genre">
-            <mat-radio-button class="margin-right-5" value="1">Femme</mat-radio-button>
-            <mat-radio-button value="2">Homme</mat-radio-button>
-        </mat-radio-group>
-         
-        <input type="email" formControlName="email" placeholder="Email" required>
-        <input type="password" formControlName="password" placeholder="*****">
-        <button type="submit" (click)="onSubmit()">S'inscrire</button>
+<div class="register-container">
+    <div class="text-align-center">Inscription</div>
+    <form [formGroup]="registerForm">
+        <div class="register-form">
+            <mat-form-field appearance="legacy">
+                <mat-label>Enter your lastname</mat-label>
+                <input matInput type="text" placeholder="Nom" formControlName="lastname" required>
+                <mat-error>{{hasErrors("lastname")}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Enter your firstname</mat-label>
+                <input matInput type="text" placeholder="Prénom" formControlName="firstname" required>
+                <mat-error>{{hasErrors("firstname")}}</mat-error>
+            </mat-form-field>
+
+            <input class="fake-mat-input" type="date" formControlName="birthdate">
+            
+            <mat-radio-group formControlName="genre" aria-label="Genre">
+                <mat-radio-button class="margin-right-5" value="1">Femme</mat-radio-button>
+                <mat-radio-button value="2">Homme</mat-radio-button>
+            </mat-radio-group>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Enter your email</mat-label>
+                <input matInput type="email" placeholder="Email" formControlName="email" required>
+                <mat-error>{{hasErrors("email")}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="******" formControlName="password" required>
+                <mat-error>{{hasErrors("password")}}</mat-error>
+            </mat-form-field>
+        </div>     
+        <div class="button-container">
+            <button type="submit" (click)="onSubmit()" [disabled]="isDisabled">S'inscrire</button>
+        </div>   
     </form>
 
-    <div class="margin-top-15">
-        <a routerLink='/login'>Se connecter</a>
+    <div class="margin-top-15 text-align-center">
+        <a routerLink="/login">Se connecter</a>
     </div>
 </div>

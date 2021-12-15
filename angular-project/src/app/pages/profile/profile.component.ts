@@ -24,8 +24,11 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  /* 
+  * Navigates to edit profile.
+  */
   goToEdit() {
-    this.router.navigate(['profile-edit']);
+    this.router.navigate(["app/profile-edit"]);
   }
 
 }

@@ -1,9 +1,24 @@
 .profile-container {
     width: fit-content;
     margin: auto;
+    background-color: lightblue;
+    padding: 15px;
+    border-radius: 5px;
 }
 
 .d-flex-space-between {
     display: flex;
     justify-content: space-between;
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+
+.font-size-20 {
+    font-size: 20px;
+}
+
+.line-height-40 {
+    line-height: 40px;
 }

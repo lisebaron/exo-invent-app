@@ -5,46 +5,51 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { User } from '../interfaces/user';
 import { Store } from '@ngrx/store';
 import { create} from '../store/user.actions';
-import { selectUserDatas } from 'src/app/store/user.selectors';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  currentUserObservable$: Observable<User> | undefined;
   isAuth = false;
 
   constructor(private aFireAuth: AngularFireAuth,
               private aFirestore: AngularFirestore,
               private store: Store,
               private router: Router) {
-    this.currentUserObservable$ = store.select(selectUserDatas);
     this.checkAuth();
   }
 
+  /* 
+  * Checks if a user is authenticated.
+  */
   checkAuth() {
-    this.aFireAuth.authState.subscribe((res) => {
+    const test = this.aFireAuth.authState.subscribe((res) => {
       if (res && res.uid) {
         this.aFirestore.collection("users").doc(res.uid).get().subscribe((data: any) => {
-          this.store.dispatch(create(data.data()));
+          this.store.dispatch(create({user: data.data()}));
         });
         this.isAuth = true;
-        this.router.navigate(['']);
-      } else if (res == null) {
+      } else if (!res) {
+        test.unsubscribe();
         this.isAuth = false;
       }
     });
   }
 
+  /* 
+  * Returns authState
+  */
   authenticated() {
     return this.aFireAuth.authState;
   }
   
+  /* 
+  * Sign up
+  */
   async register(user: User) {
     try {
       const registerUser = await this.aFireAuth.createUserWithEmailAndPassword(user.email, user.password);
-      const createUser = this.aFirestore.collection("users").doc(registerUser.user?.uid).set({
+      await this.aFirestore.collection("users").doc(registerUser.user?.uid).set({
           uid: registerUser.user?.uid,
           firstname: user.firstname,
           lastname: user.lastname,
@@ -52,20 +57,26 @@ export class AuthService {
           genre: user.genre,
           email: user.email,
         });
-      console.log("success ", createUser);
     } catch (error) {
       console.log("error : ", error);
     }
   }
 
+  /* 
+  * Sign in
+  */
   async login(user: User) {
     try {
-      const userId = (await this.aFireAuth.signInWithEmailAndPassword(user.email, user.password))?.user?.uid;
+      (await this.aFireAuth.signInWithEmailAndPassword(user.email, user.password))?.user?.uid;
+      this.router.navigate([""]);
     } catch (error) {
       console.log("error");
     }
   }
 
+  /* 
+  * Sign out
+  */
   signOut() {
     this.aFireAuth.signOut();
   }

@@ -1,11 +1,25 @@
 <div class="login-container">
-    <span>Connexion</span>
-    <form class="login-form" [formGroup]="loginForm">
-        <input type="email" formControlName="email" placeholder="Email">
-        <input type="password" formControlName="password" placeholder="*****">
-        <button type="submit" (click)="onSubmit()">Se connecter</button>
+    <div class="text-align-center margin-bottom-10">Connexion</div>
+    <form (keydown.enter)="checkEnterKey()" [formGroup]="loginForm">
+        <div class="login-form">
+            <mat-form-field appearance="legacy">
+                <mat-label>Enter your email</mat-label>
+                <input matInput type="email" placeholder="Email" formControlName="email" required>
+                <mat-error>{{hasErrors("email")}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="******" formControlName="password" required>
+                <mat-error>{{hasErrors("password")}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="button-container margin-top-15">
+            <button type="submit" (click)="onSubmit()" [disabled]="isDisabled">Se connecter</button>
+        </div> 
     </form>
-    <div class="margin-top-15">
-        <a routerLink='/register'>S'inscrire</a>
+    <div class="margin-top-15 text-align-center">
+        <a routerLink="/register">S'inscrire</a>
     </div>
 </div>

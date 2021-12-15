@@ -20,13 +20,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar'
-import { MatListModule } from '@angular/material/list'
-import { MatIconModule } from '@angular/material/icon'
-import { MatButtonModule } from '@angular/material/button'
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 
 import { StoreModule } from '@ngrx/store';
 import * as UserReducer from './store/user.reducers';
+import { ParticipantsListComponent } from './pages/participants-list/participants-list.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,8 @@ import * as UserReducer from './store/user.reducers';
     RegisterComponent,
     HomeComponent,
     ProfileComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    ParticipantsListComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +57,9 @@ import * as UserReducer from './store/user.reducers';
     MatListModule,
     MatIconModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
     StoreModule.forRoot({userState: UserReducer.createUserReducer}),
   ],
   providers: [],

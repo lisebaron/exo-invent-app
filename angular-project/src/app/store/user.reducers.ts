@@ -7,15 +7,15 @@ export const initialUser: User = {
     firstname: "",
     lastname: "",
     genre: 1,
-    birthdate: new Date(''),
+    birthdate: "",
     email: "",
     password: ""
 };
 
 export const createUserReducer = createReducer(
     initialUser,
-    on(UserActions.create, (entries, user) => {
-        entries = user;
+    on(UserActions.create, (entries, action) => {
+        entries = action.user;
         return entries;
     })
 )

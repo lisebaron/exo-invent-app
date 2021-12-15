@@ -1,16 +1,21 @@
 <div>
   <mat-sidenav-container class="height-100">
     <mat-sidenav class="sidenav padding-16" mode="side" [(opened)]="opened"> 
-      <a routerLink='/profile'>Profil</a>
+      <div class="menu-title">Menu</div>
+      <div>
+        <a class="links" routerLink="/">Home</a>
+        <a class="links" routerLink="app/profile">Profil</a>
+        <a class="links" routerLink="app/participants">Participants</a>
+      </div>
     </mat-sidenav>
 
     <mat-sidenav-content class="padding-16">
-      <div  *ngIf="isAuth()" style="display: flex; justify-content: space-between;">
+      <div *ngIf="isAuth()" class="d-flex-space-between">
         <button mat-icon-button (click)="opened = !opened">
           <mat-icon>menu</mat-icon>
         </button>
         <body>
-          <button *ngIf="isAuth()" (click)="logOut()">Log out</button>
+          <button *ngIf="isAuth()" (click)="logOut()" mat-stroked-button color="primary">Deconnexion</button>
         </body>
       </div>
       <router-outlet></router-outlet>

@@ -1,0 +1,20 @@
+<div>
+    <div style="display: flex; justify-content: space-between;">
+        <h2 class="align-verticaly">Participants</h2>
+    </div>
+    <div *ngFor="let user of userList">
+        <div class="margin-top-10 padding-10 bg-color-border-radius d-flex-space-between width-700 center-horizontaly">
+            <div>
+                <div>
+                    <span>{{user.firstname}} {{user.lastname}} </span>
+                    <span>({{user.birthdate | date:"MM/dd/yyyy"}})</span>
+                    <div *ngIf="user.genre == 1">Femme</div>
+                    <div *ngIf="user.genre == 2">Homme</div>
+                </div>
+                <div>
+                    <span>Email : <span>{{user.email}}</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
