@@ -31,7 +31,7 @@ export class ProfileEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.currentUserObservable$.subscribe((data: User)=> {
+    this.currentUserObservable$.subscribe((data: User) => {
       if (data) {
         this.currentUser = data;
         this.initFormValues();

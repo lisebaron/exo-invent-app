@@ -75,7 +75,7 @@ export class ParticipantsListComponent implements OnInit {
       this.participantList = [] as Array<Participant>;
       data.forEach(doc => {
         this.participantList.push(doc as Participant);
-      })
+      });
     });
   }
 }
