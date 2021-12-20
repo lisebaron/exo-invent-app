@@ -1,0 +1,19 @@
+<div>
+  <mat-sidenav-container class="height-1000">
+    <mat-sidenav class="sidenav padding-16" mode="side" [(opened)]="opened"> 
+      <div class="menu-title">Menu</div>
+      <div>
+        <a class="links" routerLink="/participants">Participants</a>
+      </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="padding-16">
+      <div class="w-100">
+        <button mat-icon-button (click)="opened = !opened">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

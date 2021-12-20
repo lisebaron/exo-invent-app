@@ -10,13 +10,13 @@ export class UserService {
   constructor(private aFirestore: AngularFirestore) { }
 
   /* 
-  * Updates the user.
+  * Updates the given user.
   */
   async update(user: User) {
     try {
       await this.aFirestore.collection("users").doc(user.uid).update(user);
     } catch (error) {
-      console.log(error);
+      console.error();
     }
   }
 }

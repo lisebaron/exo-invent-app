@@ -1,5 +1,5 @@
 <div *ngIf="currentUser && currentUser.uid" class="profile-container">
-    <div class="m-bottom-5">Modification du profil</div>
+    <div class="m-bottom-5 font-size-20 line-height-40">Modification du profil</div>
 
     <form [formGroup]="profileForm">
         <div class="m-bottom-10">
@@ -25,6 +25,8 @@
             </mat-radio-group>
         </div>
 
-        <button type="submit" (click)="onSubmit()">Modifier</button>
+        <div class="text-align-center">
+            <button type="submit" (click)="onSubmit()" mat-raised-button color="primary">Modifier</button>
+        </div>
     </form>
 </div>

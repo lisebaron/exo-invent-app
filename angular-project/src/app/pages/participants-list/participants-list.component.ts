@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/interfaces/user';
+import { Participant } from 'src/app/interfaces/participant';
+import { ParticipantService } from 'src/app/services/participant.service';
 
 @Component({
   selector: 'app-participants-list',
@@ -7,16 +8,49 @@ import { User } from 'src/app/interfaces/user';
   styleUrls: ['./participants-list.component.scss']
 })
 export class ParticipantsListComponent implements OnInit {
-  userList?: Array<User> = [
-    {firstname: "Henri", lastname: "Bonjour", uid: "1", email: "bonjour@gmail.com", birthdate: "09/05/2001", genre: 1, password: ""},
-    {firstname: "John", lastname: "Nhoj", uid: "1", email: "nhoj@gmail.com", birthdate: "08/01/1999", genre: 2, password: ""},
-    {firstname: "Pierre", lastname: "Feuille", uid: "1", email: "ciseaux@gmail.com", birthdate: "07/01/2002", genre: 2, password: ""},
-    {firstname: "Jean", lastname: "Bonjour", uid: "1", email: "bonjour@gmail.com", birthdate: "06/01/2012", genre: 1, password: ""},
-  ];
+  participantList: Array<Participant> = [];
   
-  constructor() { }
+  constructor( private pService: ParticipantService) { }
 
   ngOnInit(): void {
+    this.getAllParticipants();
+  }
+
+  /* 
+  * Gets all participants in the collection.
+  */
+  getAllParticipants() {
+    this.pService.getAll().subscribe((data) => {
+      this.participantList = [] as Array<Participant>;
+
+      data.forEach(doc => {
+        this.participantList.push(doc as Participant);
+      });
+
+      this.sortParticipantsByLastname();
+    });
+  }
+
+  /* 
+  * Sorts Participants by their lastname.
+  */
+  sortParticipantsByLastname() {
+    this.participantList.sort(function(a, b) {
+      if(a.lastname.toLowerCase() < b.lastname.toLowerCase()) { return -1; }
+      if(a.lastname.toLowerCase() > b.lastname.toLowerCase()) { return 1; }
+      return 0;
+    });
+  }
+
+  /* 
+  * Sorts Participants by their firstname.
+  */
+  sortParticipantsByFirstname() {
+    this.participantList.sort(function(a, b) {
+      if(a.firstname.toLowerCase() < b.firstname.toLowerCase()) { return -1; }
+      if(a.firstname.toLowerCase() > b.firstname.toLowerCase()) { return 1; }
+      return 0;
+    });
   }
 
 }

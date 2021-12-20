@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   /* 
-  * Returns authState
+  * Returns authState.
   */
   authenticated() {
     return this.aFireAuth.authState;
@@ -58,7 +58,7 @@ export class AuthService {
           email: user.email,
         });
     } catch (error) {
-      console.log("error : ", error);
+      console.error();
     }
   }
 
@@ -70,7 +70,7 @@ export class AuthService {
       (await this.aFireAuth.signInWithEmailAndPassword(user.email, user.password))?.user?.uid;
       this.router.navigate([""]);
     } catch (error) {
-      console.log("error");
+      console.error();
     }
   }
 

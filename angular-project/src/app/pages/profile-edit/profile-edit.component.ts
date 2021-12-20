@@ -40,7 +40,7 @@ export class ProfileEditComponent implements OnInit {
   }
 
   /* 
-  * initiate form Values.
+  * Initiate form Values.
   */
   initFormValues() {
     this.profileForm.patchValue({
@@ -60,7 +60,7 @@ export class ProfileEditComponent implements OnInit {
       this.store.dispatch(create({user: {...this.profileForm.getRawValue(), email: this.currentUser?.email, uid: this.currentUser?.uid}}));
       this.router.navigate(["app/profile"]);
     } catch (error) {
-      console.log(error);
+      console.error();
     }
   }
 }

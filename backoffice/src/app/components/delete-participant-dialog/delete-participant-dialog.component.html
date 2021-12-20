@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Supprimer ce participant</h1>
+<div mat-dialog-content>
+    <p>Êtes-vous sûr de supprimer le participant <b>{{data}}</b>?</p>
+</div>
+<div class="align-buttons" mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Non</button>
+  <button mat-button (click)="onConfirm()" cdkFocusInitial>Oui</button>
+</div>

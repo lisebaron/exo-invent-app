@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "first-project-7601a": {
+      "hosting": {
+        "backoffice": [
+          "first-project-7601a"
+        ]
+      }
+    }
+  }
+}

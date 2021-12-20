@@ -1,0 +1,40 @@
+.height-1000 {
+    height: 1000px;
+}
+.w-100 {
+    width: 100%;
+}
+
+.d-flex {
+    display: flex;
+}
+.d-flex-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.padding-16 {
+    padding: 16px;
+}
+
+.menu-title {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+.sidenav {
+    background-color: rgb(78, 143, 184);
+    width: 200px;
+}
+
+.links {
+    text-decoration: none;
+    color: black;
+    margin-bottom: 5px;
+}
+.links:hover {
+    color: rgb(24, 59, 83);
+}
