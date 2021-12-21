@@ -1,1 +1,20 @@
-<p>Welcome home!</p>
+<div class="flex-box-cards">
+    <mat-card *ngFor="let participant of participantList" class="card-container">
+        <mat-card-title>{{participant.firstname}} {{participant.lastname}}</mat-card-title>
+        <mat-card-subtitle>
+            <div *ngIf="participant.showEmail">
+                {{participant.email}}
+            </div>
+        </mat-card-subtitle>
+        <mat-card-content>
+            <div *ngIf="participant.genre == 1">
+                <div>Genre : Féminin</div>
+                <div *ngIf="participant.showBirthdate">Née le {{participant.birthdate | date:"dd/MM/yyyy"}}</div>
+            </div>
+            <div *ngIf="participant.genre == 2">
+                <div>Genre : Masculin</div>
+                <div *ngIf="participant.showBirthdate">Né le {{participant.birthdate | date:"dd/MM/yyyy"}}</div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

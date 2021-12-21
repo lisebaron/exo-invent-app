@@ -14,6 +14,9 @@ export class CreateParticipantDialogComponent implements OnInit {
     email: new FormControl("", [Validators.required, Validators.email]),
     birthdate: new FormControl("", Validators.required),
     genre: new FormControl("", Validators.required),
+    showEmail: new FormControl(false, Validators.required),
+    showBirthdate: new FormControl(false, Validators.required),
+    showCard: new FormControl(false, Validators.required),
   });
   
   isDisabled = true;
@@ -31,7 +34,7 @@ export class CreateParticipantDialogComponent implements OnInit {
     if (currentControl?.hasError("email")) {
       return "The email is badly formatted.";
     } else if (currentControl?.hasError("required")) {
-      return "You must enter a value";
+      return "You must enter a value.";
     }
     this.checkButton();
     return "";

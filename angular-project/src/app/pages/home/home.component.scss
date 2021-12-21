@@ -1,0 +1,11 @@
+.flex-box-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex-direction: row;
+    padding: 15px;
+}
+
+.card-container {
+    width: 300px;
+}

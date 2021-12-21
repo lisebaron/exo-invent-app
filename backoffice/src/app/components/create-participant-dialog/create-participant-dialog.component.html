@@ -1,31 +1,43 @@
-<div class="dialog-container text-align-center">
-  <span mat-dialog-title>Créer un nouveau participant</span>
+<div class="dialog-container">
+  <span class="text-align-center" mat-dialog-title>Créer un nouveau participant</span>
   <div mat-dialog-content>
     <form [formGroup]="participantForm">
-      <mat-form-field appearance="standard">
-        <mat-label>Nom</mat-label>
-        <input matInput formControlName="lastname" type="text">
-        <mat-error>{{hasErrors("lastname")}}</mat-error>
-      </mat-form-field>
+      <div class="d-flex">
+        <div>
+          <mat-form-field appearance="standard">
+            <mat-label>Nom</mat-label>
+            <input matInput formControlName="lastname" type="text">
+            <mat-error>{{hasErrors("lastname")}}</mat-error>
+          </mat-form-field>
 
-      <mat-form-field appearance="standard">
-          <mat-label>Prénom</mat-label>
-          <input matInput formControlName="firstname" type="text">
-          <mat-error>{{hasErrors("firstname")}}</mat-error>
-      </mat-form-field>
+          <mat-form-field appearance="standard">
+              <mat-label>Prénom</mat-label>
+              <input matInput formControlName="firstname" type="text">
+              <mat-error>{{hasErrors("firstname")}}</mat-error>
+          </mat-form-field>
 
-      <mat-form-field appearance="standard">
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="email" type="text">
-        <mat-error>{{hasErrors("email")}}</mat-error>
-      </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email">
+            <mat-error>{{hasErrors("email")}}</mat-error>
+          </mat-form-field>
 
-      <input class="d-block margin-bottom-15 margin-left-25" formControlName="birthdate" type="date">
+          <div class="margin-bottom-15">
+            <div class="date-title">Date de naissance</div>
+            <input formControlName="birthdate" type="date">
+          </div>
 
-      <mat-radio-group class="d-block margin-bottom-15" formControlName="genre" aria-label="Genre">
-        <mat-radio-button class="margin-right-5" value="1">Femme</mat-radio-button>
-        <mat-radio-button value="2">Homme</mat-radio-button>
-      </mat-radio-group>
+          <mat-radio-group class="d-block margin-bottom-15" formControlName="genre" aria-label="Genre">
+            <mat-radio-button class="margin-right-10" value="1">Femme</mat-radio-button>
+            <mat-radio-button value="2">Homme</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="margin-top-15">
+          <mat-checkbox class="margin-bottom-15" formControlName="showEmail" color="primary">Show Email</mat-checkbox>
+          <mat-checkbox class="margin-bottom-15" formControlName="showBirthdate" color="primary">Show Birthdate</mat-checkbox>
+          <mat-checkbox class="margin-bottom-15" formControlName="showCard" color="primary">Show Card</mat-checkbox>
+        </div>
+      </div>
     </form>
   </div>
   <div class="align-buttons" mat-dialog-actions>

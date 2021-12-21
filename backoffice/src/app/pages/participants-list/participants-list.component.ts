@@ -26,7 +26,7 @@ export class ParticipantsListComponent implements OnInit {
   */
   openCreateParticipantDialog() {
     const dialogRef = this.dialog.open(CreateParticipantDialogComponent, {
-      width: "350px",
+      width: "500px",
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -41,7 +41,7 @@ export class ParticipantsListComponent implements OnInit {
   */
   openEditParticipantDialog(participant: Participant) {
     const dialogRef = this.dialog.open(EditParticipantDialogComponent, {
-      width: "350px",
+      width: "500px",
       data: participant,
     });
     

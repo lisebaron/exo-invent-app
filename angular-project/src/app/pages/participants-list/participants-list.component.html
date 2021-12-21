@@ -11,12 +11,10 @@
             <div>
                 <div>
                     <span>{{participant.firstname}} {{participant.lastname}} </span>
-                    <span>({{participant.birthdate | date:"MM/dd/yyyy"}})</span>
+                    <span *ngIf="participant.showBirthdate">({{participant.birthdate | date:"dd/MM/yyyy""}})</span>
                     <div *ngIf="participant.genre == 1">Femme</div>
                     <div *ngIf="participant.genre == 2">Homme</div>
-                </div>
-                <div>
-                    <span>Email : <span>{{participant.email}}</span></span>
+                    <span *ngIf="participant.showEmail">Email : <span>{{participant.email}}</span></span>
                 </div>
             </div>
         </div>

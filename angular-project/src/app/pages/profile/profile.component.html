@@ -6,7 +6,7 @@
     <div>
         <div>Nom : {{ currentUser.lastname }}</div>
         <div>Prénom : {{ currentUser.firstname }}</div>
-        <div>Date de naissance : {{ currentUser.birthdate | date:"MM/dd/yyyy" }}</div>
+        <div>Date de naissance : {{ currentUser.birthdate | date:"dd/MM/yyyy" }}</div>
         <div>Genre : 
             <span *ngIf="currentUser.genre == 1">Feminin</span>
             <span *ngIf="currentUser.genre == 2">Masculin</span>

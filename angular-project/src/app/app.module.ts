@@ -13,11 +13,11 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { ProfileEditComponent } from './pages/profile-edit/profile-edit.component'
+import { ProfileEditComponent } from './pages/profile-edit/profile-edit.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -27,7 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
+import { MatCardModule } from '@angular/material/card';
 
 import { StoreModule } from '@ngrx/store';
 import * as UserReducer from './store/user.reducers';
@@ -61,6 +61,7 @@ import { ParticipantsListComponent } from './pages/participants-list/participant
     MatInputModule,
     MatDatepickerModule,
     StoreModule.forRoot({userState: UserReducer.createUserReducer}),
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

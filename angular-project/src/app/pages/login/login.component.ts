@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     } else if (currentControl?.hasError("email")) {
       return "The email address is badly formatted.";
     } else if (currentControl?.hasError("required")) {
-      return "You must enter a value";
+      return "You must enter a value.";
     }
     this.checkButton();
     return "";

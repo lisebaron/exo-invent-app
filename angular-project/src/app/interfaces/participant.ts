@@ -5,4 +5,7 @@ export interface Participant {
     genre: number,
     birthdate: string,
     email: string,
+    showEmail: boolean,
+    showBirthdate: boolean,
+    showCard: boolean,
 }

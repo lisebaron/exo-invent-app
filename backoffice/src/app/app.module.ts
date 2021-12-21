@@ -18,7 +18,7 @@ import { CreateParticipantDialogComponent } from './components/create-participan
 import { DeleteParticipantDialogComponent } from './components/delete-participant-dialog/delete-participant-dialog.component';
 import { EditParticipantDialogComponent } from './components/edit-participant-dialog/edit-participant-dialog.component';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -29,6 +29,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatDatepickerModule,
     ReactiveFormsModule,
     StoreModule.forRoot({participantState: ParticipantReducer.createParticipantReducer}),
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
