@@ -1,12 +1,12 @@
 <div>
     <div class="text-align-center">
         <h2 class="align-verticaly margin-right-15">Participants</h2>
-        <div>
+        <div *ngIf="participantList.length > 0">
             <button class="margin-right-15" (click)="sortParticipantsByLastname()" mat-stroked-button color="primary">Trier par nom</button>
             <button (click)="sortParticipantsByFirstname()" mat-stroked-button color="primary">Trier par prénom</button>
         </div>
     </div>
-    <div>
+    <div *ngIf="participantList.length > 0">
         <div *ngFor="let participant of participantList" class="margin-top-10 padding-10 bg-color-border-radius d-flex-space-between width-700 center-horizontaly">
             <div>
                 <div>
@@ -18,5 +18,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div *ngIf="participantList.length == 0" class="text-align-center margin-top-70">
+        Il n'y a aucun participant pour le moment.
     </div>
 </div>

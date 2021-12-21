@@ -1,9 +1,9 @@
 <div>
     <div class="d-flex-space-between width-700 center-horizontaly">
         <h2 class="align-verticaly text-align-center">Participants</h2>
-        <button (click)="openCreateParticipantDialog()" mat-mini-fab color="primary"><mat-icon>add</mat-icon></button>
+        <button *ngIf="participantList.length > 0" (click)="openCreateParticipantDialog()" mat-mini-fab color="primary"><mat-icon>add</mat-icon></button>
     </div>
-    <div>
+    <div *ngIf="participantList.length > 0">
         <div *ngFor="let participant of participantList" class="margin-top-10 padding-10 bg-color-border-radius d-flex-space-between width-700 center-horizontaly">
             <div>
                 <div>
@@ -19,5 +19,8 @@
                 <button (click)="openDeleteParticipantDialog(participant)" mat-mini-fab color="warn"><mat-icon>delete</mat-icon></button>
             </div>
         </div>
+    </div>
+    <div *ngIf="participantList.length == 0" class="center-horizontaly margin-top-70">
+        Il n'y a aucun participant pour le moment.
     </div>
 </div>

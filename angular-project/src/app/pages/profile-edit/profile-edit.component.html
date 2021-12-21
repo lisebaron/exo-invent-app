@@ -20,12 +20,13 @@
         <div class="d-block m-bottom-10">
             <span>Genre : </span>
             <mat-radio-group formControlName="genre" aria-label="Genre">
-                <mat-radio-button color="primary" class="margin-right-5" value="1">Femme</mat-radio-button>
+                <mat-radio-button color="primary" class="margin-right-15 padding-10-left-0" value="1">Femme</mat-radio-button>
                 <mat-radio-button color="primary" value="2">Homme</mat-radio-button>
             </mat-radio-group>
         </div>
 
         <div class="text-align-center">
+            <button (click)="goToProfile()" class="margin-right-15" mat-stroked-button>Retour</button>
             <button type="submit" (click)="onSubmit()" mat-raised-button color="primary">Modifier</button>
         </div>
     </form>

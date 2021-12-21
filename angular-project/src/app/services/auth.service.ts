@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router } from "@angular/router"
+import { Router } from "@angular/router";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore } from '@angular/fire/firestore';
 import { User } from '../interfaces/user';
@@ -23,14 +23,14 @@ export class AuthService {
   * Checks if a user is authenticated.
   */
   checkAuth() {
-    const test = this.aFireAuth.authState.subscribe((res) => {
+    const authenticated = this.aFireAuth.authState.subscribe((res) => {
       if (res && res.uid) {
         this.aFirestore.collection("users").doc(res.uid).get().subscribe((data: any) => {
           this.store.dispatch(create({user: data.data()}));
         });
         this.isAuth = true;
       } else if (!res) {
-        test.unsubscribe();
+        authenticated.unsubscribe();
         this.isAuth = false;
       }
     });
@@ -57,8 +57,9 @@ export class AuthService {
           genre: user.genre,
           email: user.email,
         });
-    } catch (error) {
-      console.error();
+        this.router.navigate([""]);
+      } catch (error) {
+      console.log(error);
     }
   }
 

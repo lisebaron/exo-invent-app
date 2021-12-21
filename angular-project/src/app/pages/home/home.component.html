@@ -1,4 +1,4 @@
-<div class="flex-box-cards">
+<div *ngIf="participantList" class="flex-box-cards">
     <mat-card *ngFor="let participant of participantList" class="card-container">
         <mat-card-title>{{participant.firstname}} {{participant.lastname}}</mat-card-title>
         <mat-card-subtitle>
@@ -17,4 +17,7 @@
             </div>
         </mat-card-content>
     </mat-card>
+</div>
+<div *ngIf="participantList.length == 0" class="flex-box-cards">
+    Il n'y a aucun participant pour le moment.
 </div>

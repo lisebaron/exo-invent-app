@@ -4,14 +4,14 @@
         <button (click)="goToEdit()" mat-mini-fab color="primary"><mat-icon>create</mat-icon></button>
     </div>
     <div>
-        <div>Nom : {{ currentUser.lastname }}</div>
-        <div>Prénom : {{ currentUser.firstname }}</div>
-        <div>Date de naissance : {{ currentUser.birthdate | date:"dd/MM/yyyy" }}</div>
-        <div>Genre : 
+        <div class="margin-bottom-5">Nom : {{ currentUser.lastname }}</div>
+        <div class="margin-bottom-5">Prénom : {{ currentUser.firstname }}</div>
+        <div class="margin-bottom-5">Date de naissance : {{ currentUser.birthdate | date:"dd/MM/yyyy" }}</div>
+        <div class="margin-bottom-5">Genre : 
             <span *ngIf="currentUser.genre == 1">Feminin</span>
             <span *ngIf="currentUser.genre == 2">Masculin</span>
         </div>
-        <div>Email : {{currentUser.email}}</div>
+        <div class="margin-bottom-5">Email : {{currentUser.email}}</div>
     </div>
 
 </div>

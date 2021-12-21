@@ -58,9 +58,13 @@ export class ProfileEditComponent implements OnInit {
     try {
       this.userService.update({...this.profileForm.getRawValue(), email: this.currentUser?.email, uid: this.currentUser?.uid});
       this.store.dispatch(create({user: {...this.profileForm.getRawValue(), email: this.currentUser?.email, uid: this.currentUser?.uid}}));
-      this.router.navigate(["app/profile"]);
+      this.goToProfile();
     } catch (error) {
       console.error();
     }
+  }
+  
+  goToProfile() {
+    this.router.navigate(["app/profile"]);
   }
 }
