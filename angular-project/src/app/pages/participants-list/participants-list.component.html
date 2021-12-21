@@ -11,7 +11,7 @@
             <div>
                 <div>
                     <span>{{participant.firstname}} {{participant.lastname}} </span>
-                    <span *ngIf="participant.showBirthdate">({{participant.birthdate | date:"dd/MM/yyyy""}})</span>
+                    <span *ngIf="participant.showBirthdate">({{participant.birthdate | date:"dd/MM/yyyy"}})</span>
                     <div *ngIf="participant.genre == 1">Femme</div>
                     <div *ngIf="participant.genre == 2">Homme</div>
                     <span *ngIf="participant.showEmail">Email : <span>{{participant.email}}</span></span>
